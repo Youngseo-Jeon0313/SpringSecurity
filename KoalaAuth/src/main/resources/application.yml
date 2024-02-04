@@ -1,8 +1,9 @@
+server:
+  port: 8080
+
 spring:
-  application:
-    name: umc3_teamproject
   datasource:
-    url: jdbc:mysql://localhost:3306/textroad?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/koaladb
     username: root
     password: root
 
@@ -16,7 +17,3 @@ spring:
         format_sql: true
     open-in-view: true
 
-springdoc:
-  swagger-ui:
-    path: docs
-  show-actuator: true
