@@ -17,3 +17,7 @@ spring:
         format_sql: true
     open-in-view: true
 
+  security:
+    user:
+      name: user
+      password: 1111
