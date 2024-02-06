@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
   datasource:
@@ -16,6 +16,11 @@ spring:
       hibernate:
         format_sql: true
     open-in-view: true
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
 
   security:
     user:

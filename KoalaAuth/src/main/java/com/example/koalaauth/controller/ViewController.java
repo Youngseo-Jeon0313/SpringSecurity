@@ -1,27 +1,28 @@
 package com.example.koalaauth.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
+@Controller
 public class ViewController {
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String home(){
         return "home";
     }
-    @GetMapping("/attend")
+    @RequestMapping("/attend")
     public String attend(){
         return "attend";
     }
 
     @GetMapping("/login")
-    String login() {
+    public String login() {
         return "login";
     }
 
-    @GetMapping("/loginerror")
-    String loginerror(){
+    @RequestMapping("/loginerror")
+    public String loginerror(){
         return "loginerror";
     }
 }
