@@ -1,6 +1,6 @@
 # Filter
 ### Filter가 대체 뭐야   
-![img.png](images/img.png)   
+![img.png](../images/img.png)   
 한 HTTP Request를 받으면 여러 계층화된 필터들을 통과하게 된다.   
 
 ♻ FilterChain 및 Servlet
@@ -29,7 +29,7 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 
 ### DelegatingFilterProxy
 서블릿 컨테이너의 생명주기와 Spring의 ApplicationContext사이의 브릿징 역할
-![img_1.png](images/img_1.png)    
+![img_1.png](../images/img_1.png)    
 서블릿 컨테이너는 자체적인 필터 등록 방식을 가지고 있다.   
 보통 web.xml 파일에서 필터를 설정하거나 @WebFilter 어노테이션을 사용해야 한다.    
 또는 FilterRegistrationBean 클래스를 사용해 스프링 빈으로 등록해야 함   
@@ -39,11 +39,11 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 ### FilterChainProxy
 Spring Security의 모든 서블릿 지원은 FilterChainProxy에 포함되어 있다.   
 이것을 이용해서 많은 Filter 인스턴스들을 SecurityFilterChain을 통해 위임할 수 있다.   
-![img.png](images/img2.png)
+![img.png](../images/img2.png)
 
 ### SecurityFilterChain
 FilterChainProxy가 어떤 요청에 대해 호출해야 하는 Spring Security Filter를 결정할 때 사용
-![img.png](images/img4.png)
+![img.png](../images/img4.png)
 여러 URL 패턴에 대한 보안 규칙을 정의하고 그에 맞는 보안 설정을 각각 적용할 수 있다.
 
 ### Security Filters
