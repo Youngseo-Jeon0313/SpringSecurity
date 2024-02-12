@@ -14,9 +14,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 
 /* Spring Security 6.0 버전 기준 WebSecurityConfigurerAdapter 사용 불가
-* 대신 개발자가 직접 component-based security 설정을 할 수 있도록 변경됨 -> 커스텀할 설정들 등록하여 사용
-* 그럼 뭘로 대체됐냐? -> SecurityConfigurerAdapter
-* */
+ * 대신 개발자가 직접 component-based security 설정을 할 수 있도록 변경됨 -> 커스텀할 설정들 등록하여 사용
+ * 그럼 뭘로 대체됐냐? -> SecurityConfigurerAdapter
+ * */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -28,11 +28,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authorize)-> authorize
-                        .anyRequest().authenticated()
-                )
+
                 .httpBasic(Customizer.withDefaults())
-                .formLogin(Customizer.withDefaults());
+                .formLogin(Customizer.withDefaults())
+                .authorizeHttpRequests((authorize)-> authorize
+                        .requestMatchers("/attend").hasRole("ADMIN")
+                        .anyRequest().permitAll() //그 외에 다른 uri는 permitAll
+                )
+                .logout((logout)->logout.logoutUrl("/logout")
+                        .deleteCookies("JSESSIONID") //로그아웃 후 쿠키 삭제
+                        .invalidateHttpSession(true)
+                        .logoutSuccessUrl("/")
+                );
         return http.build();
     }
 
@@ -41,7 +48,7 @@ public class SecurityConfig {
         UserDetails userDetails = User.withDefaultPasswordEncoder()
                 .username(username)
                 .password(password)
-                .roles("USER")
+                .roles("ADMIN")
                 .build();
 
         return new InMemoryUserDetailsManager(userDetails);

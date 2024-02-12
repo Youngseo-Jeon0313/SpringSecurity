@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8081
 
 spring:
   datasource:
@@ -19,10 +19,10 @@ spring:
 
   mvc:
     view:
-      prefix: /WEB-INF/views/
+      prefix: WEB-INF/views/
       suffix: .jsp
 
   security:
     user:
-      name: user
-      password: 1111
+      name: admin
+      password: 2222
