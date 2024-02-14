@@ -16,3 +16,8 @@ spring:
         format_sql: true
     open-in-view: true
 
+#springdoc swagger
+springdoc:
+  swagger-ui:
+    path: docs
+  show-actuator: true
