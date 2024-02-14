@@ -29,7 +29,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
 
-                .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .authorizeHttpRequests((authorize)-> authorize
                         .requestMatchers("/attend").hasRole("ADMIN")

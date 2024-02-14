@@ -36,6 +36,3 @@ public class SecurityConfig {
 
 }
 ```
-### 왜 OAuth 2! 왜 2냐
-
-### 
